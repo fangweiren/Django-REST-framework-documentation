@@ -194,3 +194,172 @@ pip show djangorestframework
 - 不要在元数据中显示隐藏字段 [#5854](https://github.com/encode/django-rest-framework/issues/5854)
 - 启用 OrderingFilter 以处理 “ordering” 字段的空元组 (或列表)。[#5899](https://github.com/encode/django-rest-framework/issues/5899)
 - 添加了通用的 500 和 400 JSON 错误处理程序。[#5904](https://github.com/encode/django-rest-framework/issues/5904)
+
+## 3.7.x 系列 (3.7.x series)
+### 3.7.7
+**日期**：2017年12月21日
+
+- 修复将 *.mo 现场文件包含到打包中的拼写错误。[#5697](https://github.com/encode/django-rest-framework/issues/5697)，[#5695](https://github.com/encode/django-rest-framework/issues/5695)
+
+### 3.7.6
+**日期**：2017年12月21日
+
+- 将缺少的 *.ico 图标文件添加到包装中。
+
+### 3.7.5
+**日期**：2017年12月21日
+
+- 将缺少的 *.woff2 字体文件添加到打包中。[#5692](https://github.com/encode/django-rest-framework/issues/5692)
+- 将缺少的 *.mo 语言环境文件添加到打包中。[#5695](https://github.com/encode/django-rest-framework/issues/5695)，[#5696](https://github.com/encode/django-rest-framework/issues/5696)
+
+### 3.7.4
+**日期**：2017年12月20日
+
+- 模式：提取 `manual_fields` 处理的方法 [#5633](https://github.com/encode/django-rest-framework/issues/5633)
+
+  允许更轻松地自定义 `manual_fields` 处理，例如，提供每个方法的手动字段。`AutoSchema` 添加了 `get_manual_fields` 作为预期的覆盖点，以及实用的方法 `update_fields`，用于处理列表中按名称字段替换，通常，您不应该覆盖该列表。
+
+  注意：`AutoSchema.__init__` 现在确保 `manual_fields` 是一个列表。以前可能在内部存储为 `None`。
+
+- 删除 ulrparse 兼容性垫片；用六个代替 [#5579](https://github.com/encode/django-rest-framework/issues/5579)
+- 为 `TimeDelta.total_seconds()` 删除兼容包装器 [#5577](https://github.com/encode/django-rest-framework/issues/5577)
+- 清理整个项目中的所有空白 [#5578](https://github.com/encode/django-rest-framework/issues/5578)
+- 兼容清理 [#5581](https://github.com/encode/django-rest-framework/issues/5581)
+- 在可浏览的 API 视图中添加 pygments CSS 块 [#5584](https://github.com/encode/django-rest-framework/issues/5584) [#5587](https://github.com/encode/django-rest-framework/issues/5587)
+- 从兼容中删除 `set_rollback()` [#5591](https://github.com/encode/django-rest-framework/issues/5591)
+- 修复请求主体/POST 访问 [#5590](https://github.com/encode/django-rest-framework/issues/5590)
+- 重命名测试以引用正确的问题 [#5610](https://github.com/encode/django-rest-framework/issues/5610)
+- 文档修复 [#5611](https://github.com/encode/django-rest-framework/issues/5611) [#5612](https://github.com/encode/django-rest-framework/issues/5612)
+- 在文档和代码中删除对不受支持的 Django 版本的引用 [#5602](https://github.com/encode/django-rest-framework/issues/5602)
+- 测试序列化器排除已声明的字段 [#5599](https://github.com/encode/django-rest-framework/issues/5599)
+- 修复了过滤后端的模式生成 [#5613](https://github.com/encode/django-rest-framework/issues/5613)
+- ModelSerializer 测试的小清理 [#5598](https://github.com/encode/django-rest-framework/issues/5598)
+- 重新实现请求属性访问 w/`__getattr__` [#5617](https://github.com/encode/django-rest-framework/issues/5617)
+- 修复了 SchemaJSRenderer 渲染无效的 Javascript [#5607](https://github.com/encode/django-rest-framework/issues/5607)
+- 使 Django 2.0 支持官方/显式 [#5619](https://github.com/encode/django-rest-framework/issues/5619)
+- 对传递的请求参数执行类型检查 [#5618](https://github.com/encode/django-rest-framework/issues/5618)
+- 修复请求验证器上的 AttributeError 隐藏 [#5600](https://github.com/encode/django-rest-framework/issues/5600)
+- 更新测试要求 [#5626](https://github.com/encode/django-rest-framework/issues/5626)
+- 文档：`Serializer._declared_fields` 启用修改序列化器上的字段 [#5629](https://github.com/encode/django-rest-framework/issues/5629)
+- 修复打包 [#5624](https://github.com/encode/django-rest-framework/issues/5624)
+- 修复 PyPI 的 readme 渲染，向 CI 添加 readme 构造 [#5625](https://github.com/encode/django-rest-framework/issues/5625)
+- 更新教程 [#5622](https://github.com/encode/django-rest-framework/issues/5622)
+- 带有 `allow_null=True` 的非必需字段不应该表示默认值 [#5639](https://github.com/encode/django-rest-framework/issues/5639)
+- 文档：添加 `allow_null` 序列化输出注释 [#5641](https://github.com/encode/django-rest-framework/issues/5641)
+- 更新在 tox.ini 中使用 Django 2.0 版本 [#5645](https://github.com/encode/django-rest-framework/issues/5645)
+- 修复 `Serializer.data` 在提供无效 `data` 时可浏览 API 渲染 [#5646](https://github.com/encode/django-rest-framework/issues/5646)
+- 文档：注意裸露 APIView 上的 AutoSchema 限制 [#5649](https://github.com/encode/django-rest-framework/issues/5649)
+- 将 `.basename` 和 `.reverse_action()` 添加到 ViewSet [#5648](https://github.com/encode/django-rest-framework/issues/5648)
+- 文档：修复序列化器文档中的拼写错误 [#5652](https://github.com/encode/django-rest-framework/issues/5652)
+- 修复 `override_settings` 兼容 [#5668](https://github.com/encode/django-rest-framework/issues/5668)
+- 添加 DEFAULT_SCHEMA_CLASS 设置 [#5658](https://github.com/encode/django-rest-framework/issues/5658)
+- 添加文档说明重新生成等于 `required=False` 的 BooleanField [#5665](https://github.com/encode/django-rest-framework/issues/5665)
+- 添加 'dist' 构建 [#5656](https://github.com/encode/django-rest-framework/issues/5656)
+- 修复 docstring 中的拼写错误 [#5678](https://github.com/encode/django-rest-framework/issues/5678)
+- 文档：添加 `UNAUTHENTICATED_USER = None` 注释 [#5679](https://github.com/encode/django-rest-framework/issues/5679)
+- 从 “记录您的 API” 更新 OPTIONS 示例 [#5680](https://github.com/encode/django-rest-framework/issues/5680)
+- 文档：添加 FBVs 关于对象权限的说明 [#5681](https://github.com/encode/django-rest-framework/issues/5681)
+- 文档：向 `to_representation` 文档添加示例 [#5682](https://github.com/encode/django-rest-framework/issues/5682)
+- 在文档中添加链接到高级 DRF [#5683](https://github.com/encode/django-rest-framework/issues/5683)
+- 文档 ViewSet.action [#5685](https://github.com/encode/django-rest-framework/issues/5685)
+- 修复模式文档拼写错误 [#5687](https://github.com/encode/django-rest-framework/issues/5687)
+- 修复模式生成中的 URL 模式解析 [#5689](https://github.com/encode/django-rest-framework/issues/5689)
+- 添加使用 `source ='*'` 的示例到自定义字段文档。[#5688](https://github.com/encode/django-rest-framework/issues/5688)
+- 修复 Django 2 path() 路由的 format_suffix_patterns 行为 [#5691](https://github.com/encode/django-rest-framework/issues/5691)
+
+### 3.7.3
+**日期**：2017年11月6日
+
+- 修复从 contrib.auth 视图导入的 `AppRegistryNotReady` 错误 [#5567](https://github.com/encode/django-rest-framework/issues/5567)
+
+### 3.7.2
+**日期**：2017年11月6日
+
+- 修复了因删除 django.contrib.auth.login()/logout() 视图而导致的 Django 2.1 兼容性问题。[#5510](https://github.com/encode/django-rest-framework/issues/5510)
+- 为 TextLexer 添加缺少的导入。[#5512](https://github.com/encode/django-rest-framework/issues/5512)
+- 添加缓存的示例和文档 [#5514](https://github.com/encode/django-rest-framework/issues/5514)
+- 包括模式生成的日期和日期时间格式 [#5511](https://github.com/encode/django-rest-framework/issues/5511)
+- 对 markdown 代码块使用三重反引号 [#5513](https://github.com/encode/django-rest-framework/issues/5513)
+- 交互式文档 - 使底部边栏项成为粘性 [#5516](https://github.com/encode/django-rest-framework/issues/5516)
+- 澄清分页系统检查 [#5524](https://github.com/encode/django-rest-framework/issues/5524)
+- 停止 JSONBoundField 矫直无效的 JSON [#5527](https://github.com/encode/django-rest-framework/issues/5527)
+- 让 JSONField 在可浏览 API 中渲染为 textarea [#5530](https://github.com/encode/django-rest-framework/issues/5530)
+- 模式：排除 ViewSet 操作的 OPTIONS/HEAD [#5532](https://github.com/encode/django-rest-framework/issues/5532)
+- 修复点源的排序 [#5533](https://github.com/encode/django-rest-framework/issues/5533)
+- 修正：带有 `allow_null=True` 的字段应该意味着默认的序列化值 [#5518](https://github.com/encode/django-rest-framework/issues/5518)
+- 确保 Location 标头是严格的 “str”，而不是子类。[#5544](https://github.com/encode/django-rest-framework/issues/5544)
+- 向 api-guide/parsers 中的示例添加导入 [#5547](https://github.com/encode/django-rest-framework/issues/5547)
+- 捕获“超出范围”日期时间的OverflowError [#5546](https://github.com/encode/django-rest-framework/issues/5546)
+- 将 djangorestframework-quickjson 添加到第三方软件包 [#5549](https://github.com/encode/django-rest-framework/issues/5549)
+- 增加 `drf_create_token` 命令的测试覆盖率 [#5550](https://github.com/encode/django-rest-framework/issues/5550)
+- 添加 Python 3.6 支持的 trove 分类器。[#5555](https://github.com/encode/django-rest-framework/issues/5555)
+- 将 pip 缓存支持添加到 Travis CI 配置 [#5556](https://github.com/encode/django-rest-framework/issues/5556)
+- 将 [`wheel`] 部分重命名为 [`bdist_wheel`]，因为前者是遗留的 [#5557](https://github.com/encode/django-rest-framework/issues/5557)
+- 修复无效的转义序列弃用警告 [#5560](https://github.com/encode/django-rest-framework/issues/5560)
+- 添加交互式文档错误模板 [#5548](https://github.com/encode/django-rest-framework/issues/5548)
+- 将舍入参数添加到 DecimalField [#5562](https://github.com/encode/django-rest-framework/issues/5562)
+- 修复测试期间捕获的所有 BytesWarning [#5561](https://github.com/encode/django-rest-framework/issues/5561)
+- 使用 dict 和 set 字面值，而不是对 dict() 和 set() 的调用 [#5559](https://github.com/encode/django-rest-framework/issues/5559)
+- 更改 ImageField 验证模式，使用 DjangoImageField 中的验证器 [#5539](https://github.com/encode/django-rest-framework/issues/5539)
+- 修复 Python 2 处理 query_string 中的 unicode 符号 [#5552](https://github.com/encode/django-rest-framework/issues/5552)
+
+### 3.7.1
+**日期**：2017年10月16日
+
+- 修复交互式文档始终对请求中的布尔字段使用 false [#5492](https://github.com/encode/django-rest-framework/issues/5492)
+- 改善与 Django 2.0 alpha 的兼容性。[#5500](https://github.com/encode/django-rest-framework/issues/5500) [#5503](https://github.com/encode/django-rest-framework/issues/5503)
+- 模式命名冲突的改进处理 [#5486](https://github.com/encode/django-rest-framework/issues/5486)
+- 添加了其他文档和测试，围绕为点 `source` 字段提供默认值 [#5489](https://github.com/encode/django-rest-framework/issues/5489)
+
+### 3.7.0
+**日期**：2017年10月6日
+
+- 修复 `DjangoModelPermissions`，以确保在调用视图的 `get_queryset()` 方法之前进行用户身份验证。作为副作用，这会更改 HTTP 方法权限和身份验证检查的顺序，并且只有在进行身份验证时才会返回 405 响应。如果您想复制旧的行为，请参阅 PR 以获取详细信息。[#5376](https://github.com/encode/django-rest-framework/issues/5376)
+- 弃用 `APIView` 和 `api_view` 装饰器上的 `exclude de_from_schema`。酌情地设置 `schema = None` 或 `@schema(None)`。[#5422](https://github.com/encode/django-rest-framework/issues/5422)
+- 时区已知的 `DateTimeFields` 现在在序列化期间遵循活动或默认时区，而不总是使用 UTC。[#5435](https://github.com/encode/django-rest-framework/issues/5435)
+
+  解决了不一致问题，实例被提供的 datetime 序列化以进行 `create`，但使用 UTC 进行 `retrieve`。[#3732](https://github.com/encode/django-rest-framework/issues/3732)
+  
+  如果依赖于 UTC 的 datetime 字符串，则**可能会出现向后兼容中断**。如果需要，让客户端解释 datetimes 或[将默认或活跃时区 (文档) 设置](https://docs.djangoproject.com/en/1.11/topics/i18n/timezones/#default-time-zone-and-current-time-zone)为 UTC。
+
+- 删除了与弃用策略内联的 DjangoFilterBackend。请改用 `django_filters.rest_framework.FilterSet` 和/或 `django_filters.rest_framework.DjangoFilterBackend`。[#5273](https://github.com/encode/django-rest-framework/issues/5273)
+- 不要在编码时剥离微秒。与 `datetime` 保持一致。**BC 变化**：以前只有毫秒被编码。[#5440](https://github.com/encode/django-rest-framework/issues/5440)
+- 添加了 `STRICT_JSON` 设置 (默认为 `True`) 来引发 Python 的 `json` 模块所接受的扩展浮动值 (`nan`，`inf`，`-inf`) 的异常。**BC 变化**：以前，这些值将转换为相应的字符串。将 `STRICT_JSON` 设置为 `False` 以恢复先前的行为。[#5265](https://github.com/encode/django-rest-framework/issues/5265)
+- 在 CursorPaginator 类中添加对 `page_size` 参数的支持 [#5250](https://github.com/encode/django-rest-framework/issues/5250)
+- 默认情况下，让 `DEFAULT_PAGINATION_CLASS` 为 `None`。**BC 变化**：如果您**只**设置 `PAGE_SIZE` 来启用分页，则需要添加 `DEFAULT_PAGINATION_CLASS`。以前的默认值是 `rest_framework.pagination.PageNumberPagination`。有一个系统检查警告来捕捉这种情况。如果您在每个视图的基础上设置分页类，那么您可以对此保持沉默。[#5170](https://github.com/encode/django-rest-framework/issues/5170)
+- 在模式生成中从 `get_serializer_fields` 捕获 `APIException`。[#5443](https://github.com/encode/django-rest-framework/issues/5443)
+- 使用 `include_docs_urls` 时，允许自定义身份验证和权限类 [#5448](https://github.com/encode/django-rest-framework/issues/5448)
+- 推迟在验证器上翻译字符串评估。[#5452](https://github.com/encode/django-rest-framework/issues/5452)
+- 将 'detail' 参数的默认值添加到 'ValidationError' 异常中 [#5342](https://github.com/encode/django-rest-framework/issues/5342)
+- 调整模式 get_filter_fields 规则以匹配框架 [#5454](https://github.com/encode/django-rest-framework/issues/5454)
+- 更新测试矩阵以添加 Django 2.0 并删除 Django 1.8 和 1.9 **BC 变化**：这将从 Django REST Framework 支持的版本中删除 Django 1.8 和 Django 1.9。[#5457](https://github.com/encode/django-rest-framework/issues/5457)
+- 修复了serializers.ModelField中的弃用警告 [#5058](https://github.com/encode/django-rest-framework/issues/5058)
+- 当 `get_queryset` 返回 `None` 时，添加了更明确的错误消息 [#5348](https://github.com/encode/django-rest-framework/issues/5348)
+- 修复响应 `data` 描述的文档 [#5361](https://github.com/encode/django-rest-framework/issues/5361)
+- 修复 **pycache**/.pyc 在包装时排除 [#5373](https://github.com/encode/django-rest-framework/issues/5373)
+- 修复点源的默认值处理 [#5375](https://github.com/encode/django-rest-framework/issues/5375)
+- 当将空主体传递给 RequestFactory 时，确保设置了 content_type [#5351](https://github.com/encode/django-rest-framework/issues/5351)
+- 修复 ErrorDetail 文档 [#5380](https://github.com/encode/django-rest-framework/issues/5380)
+- 允许通用内容表单中的可选内容 [#5372](https://github.com/encode/django-rest-framework/issues/5372)
+- 更新了 NullBooleanField 的受支持值 [#5387](https://github.com/encode/django-rest-framework/issues/5387)
+- 模型上使用 source 修复 ModelSerializer 自定义命名字段 [#5388](https://github.com/encode/django-rest-framework/issues/5388)
+- 修复 MultipleFieldLookupMixin 文档示例，以正确检查对象级权限 [#5398](https://github.com/encode/django-rest-framework/issues/5398)
+- 更新 permissions.md 中的 get_object() 示例 [#5401](https://github.com/encode/django-rest-framework/issues/5401)
+- 修正 authtoken 管理命令 [#5415](https://github.com/encode/django-rest-framework/issues/5415)
+- 修复模式生成 markdown [#5421](https://github.com/encode/django-rest-framework/issues/5421)
+- 允许动态设置 ChoiceField.choices [#5426](https://github.com/encode/django-rest-framework/issues/5426)
+- 将项目布局添加到快速入门 [#5434](https://github.com/encode/django-rest-framework/issues/5434)
+- 在 “render_markdown” templatetag 中重用 “apply_markdown” 函数 [#5469](https://github.com/encode/django-rest-framework/issues/5469)
+- 在文档中添加链接到 drf-openapi 包 [#5470](https://github.com/encode/django-rest-framework/issues/5470)
+- 添加了用 pygments 高亮显示的文档字符串代码 [#5462](https://github.com/encode/django-rest-framework/issues/5462)
+- 修复了名为 `data` 的视图的文档渲染 [#5472](https://github.com/encode/django-rest-framework/issues/5472)
+- 文档：澄清 “to_internal_value()” 验证行为 [#5466](https://github.com/encode/django-rest-framework/issues/5466)
+- 修复 APIException.str 上丢失的 six.text_type() 调用 [#5476](https://github.com/encode/django-rest-framework/issues/5476)
+- 文档 documentation.py [#5478](https://github.com/encode/django-rest-framework/issues/5478)
+- 修复模式生成中的命名冲突 [#5464](https://github.com/encode/django-rest-framework/issues/5464)
+- 使用请求对象调用 Django 的身份验证函数 [#5295](https://github.com/encode/django-rest-framework/issues/5295)
+- 将 coreapi JS 更新为 0.1.1 [#5479](https://github.com/encode/django-rest-framework/issues/5479)
+- `is_list_view` 是否能够识别 RetrieveModel... views [#5480](https://github.com/encode/django-rest-framework/issues/5480)
+- 删除 Django 1.8 和 1.9 兼容性代码 [#5481](https://github.com/encode/django-rest-framework/issues/5481)
+- 从 DefaultRouter 中删除已弃用的模式代码 [#5482](https://github.com/encode/django-rest-framework/issues/5482)
+- 重构模式生成以允许按视图自定义。**BC 变化**：`SchemaGenerator.get_serializer_fields` 已被重构为 `AutoSchema.get_serializer_fields` 并删除了 `view` 参数
