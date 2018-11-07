@@ -363,3 +363,79 @@ pip show djangorestframework
 - 删除 Django 1.8 和 1.9 兼容性代码 [#5481](https://github.com/encode/django-rest-framework/issues/5481)
 - 从 DefaultRouter 中删除已弃用的模式代码 [#5482](https://github.com/encode/django-rest-framework/issues/5482)
 - 重构模式生成以允许按视图自定义。**BC 变化**：`SchemaGenerator.get_serializer_fields` 已被重构为 `AutoSchema.get_serializer_fields` 并删除了 `view` 参数
+
+## 3.6.x 系列 (3.6.x series)
+### 3.6.4
+**日期**：2017年8月21日
+
+- 忽略 OrderingFilter 的任何无效的查询参数。[#5131](https://github.com/encode/django-rest-framework/issues/5131)
+- 在读取大型 JSON 请求时改善内存占用。[#5147](https://github.com/encode/django-rest-framework/issues/5147)
+- 修复分页的模式生成。[#5161](https://github.com/encode/django-rest-framework/issues/5161)
+- 修复 `HTML_CUTOFF` 设置为 `None` 时的异常。[#5174](https://github.com/encode/django-rest-framework/issues/5174)
+- 修复可浏览的 API 不正确支持 `multipart/form-data`。[#5176](https://github.com/encode/django-rest-framework/issues/5176)
+- 修复 `test_hyperlinked_related_lookup_url_encoded_exists`。[#5179](https://github.com/encode/django-rest-framework/issues/5179)
+- 确保 max_length 在 FileField kwargs 中。[#5186](https://github.com/encode/django-rest-framework/issues/5186)
+- 使用 kwargs 修复 `list_route` 和 `detail_route` 在 `url_path` 中包含大括号 [#5187](https://github.com/encode/django-rest-framework/issues/5187)
+- 添加 Django 管理命令来创建 DRF 用户令牌。[#5188](https://github.com/encode/django-rest-framework/issues/5188)
+- 确保 API 文档模板不检查用户身份验证 [#5162](https://github.com/encode/django-rest-framework/issues/5162)
+- 修复 OneToOneField 也是主键的特殊情况。[#5192](https://github.com/encode/django-rest-framework/issues/5192)
+- 在 base.html 中添加 aria-label 和用于可访问性目的的新区域 [#5196](https://github.com/encode/django-rest-framework/issues/5196)
+- 引用 api.js 中的嵌套 API 参数 [#5214](https://github.com/encode/django-rest-framework/issues/5214)
+- 调度前设置 ViewSet args/kwargs/请求。[#5229](https://github.com/encode/django-rest-framework/issues/5229)
+- 为 SlugField 添加 unicode 支持。[#5231](https://github.com/encode/django-rest-framework/issues/5231)
+- 修复 HiddenField 以原始数据形式呈现初始内容。[#5259](https://github.com/encode/django-rest-framework/issues/5259)
+- 在无效时区解析时引发验证错误。[#5261](https://github.com/encode/django-rest-framework/issues/5261)
+- 修复 SearchFilter 到多个行为/性能。[#5264](https://github.com/encode/django-rest-framework/issues/5264)
+- 简化的链式比较和次要代码修复。[#5276](https://github.com/encode/django-rest-framework/issues/5276)
+- RemoteUserAuthentication, docs, and tests. [#5306](https://github.com/encode/django-rest-framework/issues/5306)
+- 还原 “缓存字段的根和上下文属性” [#5313](https://github.com/encode/django-rest-framework/issues/5313)
+- 修复模式中列表字段的内省。[#5326](https://github.com/encode/django-rest-framework/issues/5326)
+- 修复多个嵌套和额外方法的交互式文档。[#5334](https://github.com/encode/django-rest-framework/issues/5334)
+- 修复/删除未定义的模板变量 “schema” [#5346](https://github.com/encode/django-rest-framework/issues/5346)
+
+### 3.6.3
+**日期**：2017年5月12日
+
+- 如果 URL 查找导致 ValidationError，则引发 404 错误。[#5126](https://github.com/encode/django-rest-framework/issues/5126)
+- 在生成 API 模式时，在基于类的视图上尊重 http_method_names。[#5085](https://github.com/encode/django-rest-framework/issues/5085)
+- 允许在 LimitOffsetPagination 中覆盖 `get_limit` 以返回所有记录。[#4437](https://github.com/encode/django-rest-framework/issues/4437)
+- 修复 ListSerializer 的部分更新。[#4222](https://github.com/encode/django-rest-framework/issues/4222)
+- 在可浏览的 API 中正确渲染 JSONField 控件。[#4999](https://github.com/encode/django-rest-framework/issues/4999) [#5042](https://github.com/encode/django-rest-framework/issues/5042)
+- 在给定时区中为无效的 datetime 引发验证错误。[#4987](https://github.com/encode/django-rest-framework/issues/4987)
+- 支持限制文档和模式快捷方式到 url 子集。[#4979](https://github.com/encode/django-rest-framework/issues/4979)
+- 使用没有 `page_size` 属性的分页器解决 SchemaGenerator 错误。[#5086](https://github.com/encode/django-rest-framework/issues/5086) [#3692](https://github.com/encode/django-rest-framework/issues/3692)
+- 用 %20 而不是空格解决字符串上的 HyperlinkedRelatedField 异常。[#4748](https://github.com/encode/django-rest-framework/issues/4748) [#5078](https://github.com/encode/django-rest-framework/issues/5078)
+- 可定制的模式生成器类。[#5082](https://github.com/encode/django-rest-framework/issues/5082)
+- 更新响应中现有的变化标头，而不是覆盖它们。[#5047](https://github.com/encode/django-rest-framework/issues/5047)
+- 支持将 `.as_view()` 传递给视图实例。[#5053](https://github.com/encode/django-rest-framework/issues/5053)
+- 在视图上覆盖设置时使用正确的异常处理程序。[#5055](https://github.com/encode/django-rest-framework/issues/5055) [#5054](https://github.com/encode/django-rest-framework/issues/5054)
+- 更新布尔字段以支持 “yes” 和 “no” 值。[#5038](https://github.com/encode/django-rest-framework/issues/5038)
+- 修复 ChoiceField 的唯一验证器。[#5004](https://github.com/encode/django-rest-framework/issues/5004) [#5026](https://github.com/encode/django-rest-framework/issues/5026) [#5028](https://github.com/encode/django-rest-framework/issues/5028)
+- API 文档中的 JavaScript 清理。[#5001](https://github.com/encode/django-rest-framework/issues/5001)
+- 在有效的 API 模式中包含 URL 路径正则表达式。[#5014](https://github.com/encode/django-rest-framework/issues/5014)
+- 正确设置 coreapi TokenAuthentication 方案。[#5000](https://github.com/encode/django-rest-framework/issues/5000) [#4994](https://github.com/encode/django-rest-framework/issues/4994)
+- ViewSet 上的 HEAD 请求不应返回 405。[#4705](https://github.com/encode/django-rest-framework/issues/4705) [#4973](https://github.com/encode/django-rest-framework/issues/4973) [#4864](https://github.com/encode/django-rest-framework/issues/4864)
+- 支持在 `extra_kwargs` 中使用 'source'。[#4688](https://github.com/encode/django-rest-framework/issues/4688)
+- 修复 schema.js 的无效内容类型 [#4968](https://github.com/encode/django-rest-framework/issues/4968)
+- 修复 DjangoFilterBackend 继承问题。[#5089](https://github.com/encode/django-rest-framework/issues/5089) [#5117](https://github.com/encode/django-rest-framework/issues/5117)
+
+### 3.6.2
+**日期**：2017年3月10日
+
+- 在 API 文档中支持 Safari 和 IE。[#4959](https://github.com/encode/django-rest-framework/issues/4959) [#4961](https://github.com/encode/django-rest-framework/issues/4961)
+- 在 API 文档模板标记中添加缺少的 `mark_safe`。[#4952](https://github.com/encode/django-rest-framework/issues/4952) [#4953](https://github.com/encode/django-rest-framework/issues/4953)
+- 添加缺少的 glyphicon 字体。[#4950](https://github.com/encode/django-rest-framework/issues/4950) [#4951](https://github.com/encode/django-rest-framework/issues/4951)
+- 修复 API 文档中的一对一字段。[#4955](https://github.com/encode/django-rest-framework/issues/4955) [#4956](https://github.com/encode/django-rest-framework/issues/4956)
+- 测试清理。[#4949](https://github.com/encode/django-rest-framework/issues/4949)
+
+### 3.6.1
+**日期**：2017年3月9日
+
+- 确保 `markdown` 依赖是可选的。[#4947](https://github.com/encode/django-rest-framework/issues/4947)
+
+### 3.6.0
+**日期**：2017年3月9日
+
+- 请参阅[发布公告](https://www.django-rest-framework.org/community/3.6-announcement/)。
+
+***
