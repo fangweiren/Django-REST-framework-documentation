@@ -823,3 +823,154 @@ pip show djangorestframework
 - 许多其他的清理，错误消息的改进，私有 API 和小的修正。
 
 ***
+
+## 3.1.x 系列 (3.1.x series)
+### 3.1.3
+**日期**：2015年6月4日。
+
+- 添加 `DurationField`。[#2481](https://github.com/encode/django-rest-framework/issues/2481) [#2989](https://github.com/encode/django-rest-framework/issues/2989)
+- 将 `format` 参数添加到 `UUIDField`。[#2788](https://github.com/encode/django-rest-framework/issues/2788) [#3000](https://github.com/encode/django-rest-framework/issues/3000)
+- `MultipleChoiceField` 使用 multipart/form-data 错误地对部分更新进行清空 [#2993](https://github.com/encode/django-rest-framework/issues/2993) [#2894](https://github.com/encode/django-rest-framework/issues/2894)
+- 修复与只读 `RelatedField` 相关的选项中的错误。[#2981](https://github.com/encode/django-rest-framework/issues/2981) [#2811](https://github.com/encode/django-rest-framework/issues/2811)
+- 修复具有 `unique_together` 关系的嵌套序列化器。[#2975](https://github.com/encode/django-rest-framework/issues/2975)
+- 允许 `ChoiceField/MultipleChoiceField` 表示的意外值。[#2839](https://github.com/encode/django-rest-framework/issues/2839) [#2940](https://github.com/encode/django-rest-framework/issues/2940)
+- 如果设置了 `ATOMIC_REQUESTS`，则在错误时回滚事务。[#2887](https://github.com/encode/django-rest-framework/issues/2887) [#2034](https://github.com/encode/django-rest-framework/issues/2034)
+- 当 override_method 不管其 None 状态时，在视图上设置操作。[#2933](https://github.com/encode/django-rest-framework/issues/2933)
+- `DecimalField` 接受 `2E+2` 作为 200 并正确验证小数位。[#2948](https://github.com/encode/django-rest-framework/issues/2948) [#2947](https://github.com/encode/django-rest-framework/issues/2947)
+- 使用更改 `username` 的自定义 `UserModel` 支持基本身份验证。[#2952](https://github.com/encode/django-rest-framework/issues/2952)
+- `IPAddressField` 的改进。[#2747](https://github.com/encode/django-rest-framework/issues/2747) [#2618](https://github.com/encode/django-rest-framework/issues/2618) [#3008](https://github.com/encode/django-rest-framework/issues/3008)
+- 改进 `DecimalField`，以便更容易子类化。[#2695](https://github.com/encode/django-rest-framework/issues/2695)
+
+### 3.1.2
+**日期**：2015年5月13日。
+
+- `DateField.to_representation` 可以处理字符串和空值。[#2656](https://github.com/encode/django-rest-framework/issues/2656) [#2687](https://github.com/encode/django-rest-framework/issues/2687) [#2869](https://github.com/encode/django-rest-framework/issues/2869)
+- 使用 HTTP 标准中的默认原因短语。[#2764](https://github.com/encode/django-rest-framework/issues/2764) [#2763](https://github.com/encode/django-rest-framework/issues/2763)
+- 当将 `ModelSerializer` 与抽象模型一起使用时，会引发错误。[#2757](https://github.com/encode/django-rest-framework/issues/2757) [#2630](https://github.com/encode/django-rest-framework/issues/2630)
+- 在 `HyperLinkedRelatedField` 中处理非 API view_name 的逆转 [#2724](https://github.com/encode/django-rest-framework/issues/2724) [#2711](https://github.com/encode/django-rest-framework/issues/2711)
+- 不要对相关字段严格要求 pk。[#2745](https://github.com/encode/django-rest-framework/issues/2745) [#2754](https://github.com/encode/django-rest-framework/issues/2754)
+- 元数据检测空布尔字段类型。[#2762](https://github.com/encode/django-rest-framework/issues/2762)
+- 妥善处理嵌套序列化器中的深度。[#2798](https://github.com/encode/django-rest-framework/issues/2798)
+- 显示没有分页器的视图集。[#2807](https://github.com/encode/django-rest-framework/issues/2807)
+- 不要在权限中检查已弃用的 `.model` 属性 [#2818](https://github.com/encode/django-rest-framework/issues/2818)
+- 将整数字段限制为整数和字符串。[#2835](https://github.com/encode/django-rest-framework/issues/2835) [#2836](https://github.com/encode/django-rest-framework/issues/2836)
+- 改进 `IntegerField` 以使用编译的十进制正则表达式。[#2853](https://github.com/encode/django-rest-framework/issues/2853)
+- 阻止空 `queryset` 引发 AssertionError。[#2862](https://github.com/encode/django-rest-framework/issues/2862)
+- `DjangoModelPermissions` 依赖于 `get_queryset`。[#2863](https://github.com/encode/django-rest-framework/issues/2863)
+- 把 `AcceptHeaderVersioning` 与内容协商核对。[#2868](https://github.com/encode/django-rest-framework/issues/2868)
+- 允许 `DjangoObjectPermissions` 使用定义 `get_queryset` 的视图。[#2905](https://github.com/encode/django-rest-framework/issues/2905)
+
+### 3.1.1
+**日期**：2015年3月23日。
+
+- **安全修复**：可浏览 API 中的转义制表符切换 cookie 名。
+- 如果使用 `serializer_class`，即使在视图中不存在 `get_serializer` 方法，也可以在可浏览的 API 中显示输入表单。[#2743](https://github.com/encode/django-rest-framework/issues/2743)
+- 使用 `AuthTokenSerializer` 的密码输入。[#2741](https://github.com/encode/django-rest-framework/issues/2741)
+- 修复下一个按钮后缺少的锚关闭标签。[#2691](https://github.com/encode/django-rest-framework/issues/2691)
+- 修复视图集中的 `lookup_url_kwarg` 处理。[#2685](https://github.com/encode/django-rest-framework/issues/2685) [#2591](https://github.com/encode/django-rest-framework/issues/2591)
+- 修复了在 `apps.py` 中导入 `rest_framework.views` 的问题 [#2678](https://github.com/encode/django-rest-framework/issues/2678)
+- 如果未设置 `PAGE_SIZE`，LimitOffsetPagination 会引发 `TypeError` [#2667](https://github.com/encode/django-rest-framework/issues/2667) [#2700](https://github.com/encode/django-rest-framework/issues/2700)
+- `min_value` 字段错误消息的德语翻译引用 `max_value`。[#2645](https://github.com/encode/django-rest-framework/issues/2645)
+- 删除 `MergeDict`。[#2640](https://github.com/encode/django-rest-framework/issues/2640)
+- 支持序列化具有相关字段的未保存模型。[#2637](https://github.com/encode/django-rest-framework/issues/2637) [#2641](https://github.com/encode/django-rest-framework/issues/2641)
+- 在 radio.html 选项上允许空白/null。[#2631](https://github.com/encode/django-rest-framework/issues/2631)
+
+### 3.1.0
+**日期**：2015年3月5日。
+
+- 有关详细信息，请参阅 [3.1 发布公告](https://www.django-rest-framework.org/community/3.1-announcement/)。
+
+***
+
+## 3.0.x 系列 (3.0.x series)
+### 3.0.5
+**日期**：2015年2月10日。
+
+- 修复 `_closable_objects` 破坏序列化的错误。[#1850](https://github.com/encode/django-rest-framework/issues/1850) [#2492](https://github.com/encode/django-rest-framework/issues/2492)
+- 允许具有 `Throttling` 的非标准 `User` 模型。[#2524](https://github.com/encode/django-rest-framework/issues/2524)
+- 在 TokenAuthentication 迁移中支持自定义 `User.db_table`。[#2479](https://github.com/encode/django-rest-framework/issues/2479)
+- 修复 `Request` 对象上误导性的 `AttributeError` 回溯。[#2530](https://github.com/encode/django-rest-framework/issues/2530) [#2108](https://github.com/encode/django-rest-framework/issues/2108)
+- 在部分更新上 `ManyRelatedField.get_value` 清除字段。[#2475](https://github.com/encode/django-rest-framework/issues/2475)
+- 从代码中删除了 '.model' 快捷方式。[#2486](https://github.com/encode/django-rest-framework/issues/2486)
+- 修复 `detail_route` 和 `list_route` 可变参数。[#2518](https://github.com/encode/django-rest-framework/issues/2518)
+- 在 `TokenAuthentication` 中获取令牌时预取用户对象。[#2519](https://github.com/encode/django-rest-framework/issues/2519)
+
+### 3.0.4
+**日期**：2015年1月28日。
+
+- Django 1.8a1 支持。[#2425](https://github.com/encode/django-rest-framework/issues/2425) [#2446](https://github.com/encode/django-rest-framework/issues/2446) [#2441](https://github.com/encode/django-rest-framework/issues/2441)
+- 添加 `DictField` 并支持 Django 1.8 `HStoreField`。[#2451](https://github.com/encode/django-rest-framework/issues/2451) [#2106](https://github.com/encode/django-rest-framework/issues/2106)
+- 添加 `UUIDField` 并支持 Django 1.8 `UUIDField`。[#2448](https://github.com/encode/django-rest-framework/issues/2448) [#2433](https://github.com/encode/django-rest-framework/issues/2433) [#2432](https://github.com/encode/django-rest-framework/issues/2432)
+- `BaseRenderer.render` 现在引发 `NotImplementedError`。[#2434](https://github.com/encode/django-rest-framework/issues/2434)
+- 修复 Python 2.6 上的 timedelta JSON 序列化。[#2430](https://github.com/encode/django-rest-framework/issues/2430)
+- `ResultDict` 和 `ResultList` 现在表现为标准的字典/列表。[#2421](https://github.com/encode/django-rest-framework/issues/2421)
+- 修复 Web 浏览 API 页面的 HTML 表单中的可见 `HiddenField`。[#2410](https://github.com/encode/django-rest-framework/issues/2410)
+-  对 `RelatedField.choices` 使用 `OrderedDict`。[#2408](https://github.com/encode/django-rest-framework/issues/2408)
+-  修复使用 `HTTP_X_FORWARDED_FOR` 时的识别格式。[#2401](https://github.com/encode/django-rest-framework/issues/2401)
+-  使用限流时修复带有 memcached 的无效密钥。[#2400](https://github.com/encode/django-rest-framework/issues/2400)
+-  修复版本 3.x 的 `FileUploadParser`。[#2399](https://github.com/encode/django-rest-framework/issues/2399)
+-  修复序列化器继承。[#2388](https://github.com/encode/django-rest-framework/issues/2388)
+-  修复 `ReturnDict` 的缓存问题。[#2360](https://github.com/encode/django-rest-framework/issues/2360)
+
+### 3.0.3
+**日期**：2015年1月8日。
+
+- 修复 `models.DateField` 上的 `MinValueValidator`。[#2369](https://github.com/encode/django-rest-framework/issues/2369)
+- 使用分页时修复序列化器缺少上下文。[#2355](https://github.com/encode/django-rest-framework/issues/2355)
+- `DefaultRouter` 现在支持命名空间的路由器 URL。[#2351](https://github.com/encode/django-rest-framework/issues/2351)
+- `required=False` 允许输出值的遗漏。[#2342](https://github.com/encode/django-rest-framework/issues/2342)
+- 对 `models.TextField` 使用 textarea 输入。[#2340](https://github.com/encode/django-rest-framework/issues/2340)
+- 如果需要，使用自定义 `ListSerializer` 进行分页。[#2331](https://github.com/encode/django-rest-framework/issues/2331) [#2327](https://github.com/encode/django-rest-framework/issues/2327)
+- 使用 null 和 “空白 HTML 字段” 的更好行为。[#2330](https://github.com/encode/django-rest-framework/issues/2330)
+- 确保 `exclude` 中的字段是模型字段。[#2319](https://github.com/encode/django-rest-framework/issues/2319)
+- 修复 `IntegerField` 和 `max_length` 参数不兼容。[#2317](https://github.com/encode/django-rest-framework/issues/2317)
+- 修复了用于 3.0 序列化器的 YAML 编码器。[#2315](https://github.com/encode/django-rest-framework/issues/2315) [#2283](https://github.com/encode/django-rest-framework/issues/2283)
+- 修复空 HTML 字段的行为。[#2311](https://github.com/encode/django-rest-framework/issues/2311) [#1101](https://github.com/encode/django-rest-framework/issues/1101)
+- 修复元类属性深度忽略字段属性。[#2287](https://github.com/encode/django-rest-framework/issues/2287)
+- 修复 `format_suffix_patterns` 以用于 Django 的 `i18n_patterns`。[#2278](https://github.com/encode/django-rest-framework/issues/2278)
+- 能够使用 `url_path` 为自定义操作定制路由器 URL。[#2010](https://github.com/encode/django-rest-framework/issues/2010)
+- 不要将 Django REST Framework 安装为 egg。[#2386](https://github.com/encode/django-rest-framework/issues/2386)
+
+### 3.0.2
+**日期**：2014年12月17日。
+
+- 确保 `request.user` 可用于响应中间件。[#2155](https://github.com/encode/django-rest-framework/issues/2155)
+- `logout()` 还取消了任何现有的 `force_authenticate`。[#2218](https://github.com/encode/django-rest-framework/issues/2218) [#2259](https://github.com/encode/django-rest-framework/issues/2259)
+- 额外的断言和更好的检查，以防止错误的序列化 API 使用。[#2228](https://github.com/encode/django-rest-framework/issues/2228) [#2234](https://github.com/encode/django-rest-framework/issues/2234) [#2262](https://github.com/encode/django-rest-framework/issues/2262) [#2263](https://github.com/encode/django-rest-framework/issues/2263) [#2266](https://github.com/encode/django-rest-framework/issues/2266) [#2267](https://github.com/encode/django-rest-framework/issues/2267) [#2289](https://github.com/encode/django-rest-framework/issues/2289) [#2291](https://github.com/encode/django-rest-framework/issues/2291)
+- 修复了 `CharField` 的 `min_length` 消息。[#2255](https://github.com/encode/django-rest-framework/issues/2255)
+- 修复了在序列化器 `repr` 上发生的 `UnicodeDecodeError`。[#2270](https://github.com/encode/django-rest-framework/issues/2270) [#2279](https://github.com/encode/django-rest-framework/issues/2279)
+- 提供默认值时修复空 HTML 值。[#2280](https://github.com/encode/django-rest-framework/issues/2280) [#2294](https://github.com/encode/django-rest-framework/issues/2294)
+- 修复 `SlugRelatedField` 在用作多选输入时引发 `UnicodeEncodeError`。[#2290](https://github.com/encode/django-rest-framework/issues/2290)
+
+### 3.0.1
+**日期**：2014年12月11日。
+
+- 当默认序列化器 `create()` 失败时，更有用的错误消息。[#2013](https://github.com/encode/django-rest-framework/issues/2013)
+- 如果数据无效，尝试保存序列化程序时引发错误。[#2098](https://github.com/encode/django-rest-framework/issues/2098)
+- 修复 `FileUploadParser` 打破空文件名和多个上传处理程序。[#2109](https://github.com/encode/django-rest-framework/issues/2109)
+- 改进 `BindingDict` 以支持标准的 dict 函数。[#2135](https://github.com/encode/django-rest-framework/issues/2135) [#2163](https://github.com/encode/django-rest-framework/issues/2163)
+- 向 `ListSerializer` 添加 `validate()`。[#2168](https://github.com/encode/django-rest-framework/issues/2168) [#2225](https://github.com/encode/django-rest-framework/issues/2225) [#2232](https://github.com/encode/django-rest-framework/issues/2232)
+- 修复 JSONP 渲染器无法转义某些字符。[#2169](https://github.com/encode/django-rest-framework/issues/2169) [#2195](https://github.com/encode/django-rest-framework/issues/2195)
+- 为 `FileField` 添加缺少的默认样式。[#2172](https://github.com/encode/django-rest-framework/issues/2172)
+- 调用 `ViewSet.as_view()` 时需要操作。[#2175](https://github.com/encode/django-rest-framework/issues/2175)
+- 向 `ChoiceField` 添加 `allow_blank`。[#2184](https://github.com/encode/django-rest-framework/issues/2184) [#2239](https://github.com/encode/django-rest-framework/issues/2239)
+- HTML 渲染器中的修饰性修复。[#2187](https://github.com/encode/django-rest-framework/issues/2187)
+- 如果序列化器上的 `fields` 不是字符串列表，则引发错误。[#2193](https://github.com/encode/django-rest-framework/issues/2193) [#2213](https://github.com/encode/django-rest-framework/issues/2213)
+- 改进对嵌套创建和更新的检查。[#2194](https://github.com/encode/django-rest-framework/issues/2194) [#2196](https://github.com/encode/django-rest-framework/issues/2196)
+- `validated_attrs` 参数在 `Serializer` `create()`/`update()` 中被重命名为 `validated_data`。[#2197](https://github.com/encode/django-rest-framework/issues/2197)
+- 删除已弃用的代码以反映已删除的 Django 版本。[#2200](https://github.com/encode/django-rest-framework/issues/2200)
+- 嵌套写入的更好的序列化器错误。[#2202](https://github.com/encode/django-rest-framework/issues/2202) [#2215](https://github.com/encode/django-rest-framework/issues/2215)
+- 修复分页和自定义权限不兼容。[#2205](https://github.com/encode/django-rest-framework/issues/2205)
+- 如果序列化器上的 `fields` 不是字符串列表，则引发错误。[#2213](https://github.com/encode/django-rest-framework/issues/2213)
+- 为关系字段添加缺少的翻译标记。[#2231](https://github.com/encode/django-rest-framework/issues/2231)
+- 改进 dicts/mappings 的字段查找行为。[#2244](https://github.com/encode/django-rest-framework/issues/2244) [#2243](https://github.com/encode/django-rest-framework/issues/2243)
+- 优化超链的 PK。[#2242](https://github.com/encode/django-rest-framework/issues/2242)
+
+### 3.0.0
+**日期**：2014年12月1日
+
+有关完整详细信息，请参阅 [3.0 发布公告](https://www.django-rest-framework.org/community/3.0-announcement/)。
+
+***
+
+有关较早的发行说明，[请参阅 2.x 版文档](https://github.com/encode/django-rest-framework/blob/version-2.4.x/docs/topics/release-notes.md)。
