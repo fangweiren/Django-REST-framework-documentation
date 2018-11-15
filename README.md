@@ -1,6 +1,8 @@
 # Django REST framework 中文文档
 如果本文对您有所帮助，请在 [github](https://github.com/fangweiren/Django-REST-framework-documentation) 上 **star** 该项目。
 
+本人博客：[Django REST framework 中文文档](http://www.iamnancy.top/djangorestframework/Home/)，跟官网布局基本一致，更直观。
+
 ## 版本说明
 这是 Django REST framework v3 版本的中文翻译文档。
 
@@ -83,5 +85,5 @@
 Django REST framework 中文版系列文章是本人从官方网站文档学习时根据 Google 翻译 + 自己理解的成果，本人能力有限，如有翻译不当之处，欢迎讨论。
 
 - Github 地址：[Django REST framework 中文文档](https://github.com/fangweiren/Django-REST-framework-documentation)
-- 本人博客：[Nancy - 首页](http://www.iamnancy.top/)
+- 本人博客：[Home - Django REST framework](http://www.iamnancy.top/djangorestframework/Home/)
 - 官网网站：[Django REST framework](http://www.django-rest-framework.org/)
